@@ -44,19 +44,19 @@ once(videoPlayer, "loadedmetadata", () => {
   );
 });
 
-// setTimeout(() => {
-//   if (window["fetch"]) {
-//     fetch(v3)
-//       .then((res) => res.blob())
-//       .then((res) => {
-//         const url = URL.createObjectURL(res);
-//         const t = videoPlayer.currentTime;
-//         once(document.documentElement, "touchstart", () => {
-//           videoPlayer.play();
-//           videoPlayer.pause();
-//         });
-//         videoPlayer.setAttribute("src", url);
-//         videoPlayer.currentTime = t + 0.01;
-//       });
-//   }
-// }, 1000);
+setTimeout(() => {
+  if (window["fetch"]) {
+    fetch(v3)
+      .then((res) => res.blob())
+      .then((res) => {
+        const url = URL.createObjectURL(res);
+        const t = videoPlayer.currentTime;
+        once(document.documentElement, "touchstart", () => {
+          videoPlayer.play();
+          videoPlayer.pause();
+        });
+        videoPlayer.setAttribute("src", url);
+        videoPlayer.currentTime = t + 0.01;
+      });
+  }
+}, 1000);
